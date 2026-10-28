@@ -1,33 +1,32 @@
 // Birthday
-import bd1 from "../assets/Birthday/1.jpeg";
-import bd2 from "../assets/Birthday/2.jpeg";
-import bd3 from "../assets/Birthday/3.png";
-import bd4 from "../assets/Birthday/4.jpeg";
-import bd5 from "../assets/Birthday/5.jpeg";
-import bd6 from "../assets/Birthday/6.jpeg";
-import bd7 from "../assets/Birthday/7.jpeg";
-import bd8 from "../assets/Birthday/8.png";
-import bd10 from "../assets/Birthday/10.jpeg";
-import bd11 from "../assets/Birthday/11.jpeg";
-import bd13 from "../assets/Birthday/13.png";
-import bd14 from "../assets/Birthday/14.png";
-import bd15 from "../assets/Birthday/15.jpeg";
-import bd20 from "../assets/Birthday/20.png";
+import bd1 from "../assets/Birthday/1.webp";
+import bd2 from "../assets/Birthday/2.webp";
+import bd3 from "../assets/Birthday/3.webp";
+import bd4 from "../assets/Birthday/4.webp";
+import bd5 from "../assets/Birthday/5.webp";
+import bd6 from "../assets/Birthday/6.webp";
+import bd7 from "../assets/Birthday/7.webp";
+import bd8 from "../assets/Birthday/8.webp";
+import bd10 from "../assets/Birthday/10.webp";
+import bd11 from "../assets/Birthday/11.webp";
+import bd13 from "../assets/Birthday/13.webp";
+import bd14 from "../assets/Birthday/14.webp";
+import bd15 from "../assets/Birthday/15.webp";
+import bd20 from "../assets/Birthday/20.webp";
 
 // Photoshoot
-import ps1 from "../assets/PhotoShoot/jiya1.jpeg";
-import ps2 from "../assets/PhotoShoot/krishna/k3.jpeg";
-import ps3 from "../assets/PhotoShoot/nature.jpeg";
-import ps4 from "../assets/PhotoShoot/sibling.jpeg";
-import ps5 from "../assets/PhotoShoot/nature_2.jpeg";
-import ps6 from "../assets/PhotoShoot/butterfly.jpeg";
-import ps7 from "../assets/PhotoShoot/krishna/rk7.jpeg";
-import ps8 from "../assets/PhotoShoot/chocolate.jpeg";
-import ps9 from "../assets/PhotoShoot/dresshanger.jpeg";
-import ps10 from "../assets/PhotoShoot/eight.jpeg";
-import ps11 from "../assets/PhotoShoot/kitchen.jpeg";
-import ps12 from "../assets/PhotoShoot/name.jpeg";
-import ps13 from "../assets/PhotoShoot/sibling.jpeg";
+import ps1 from "../assets/PhotoShoot/jiya1.webp";
+import ps2 from "../assets/PhotoShoot/krishna/k3.webp";
+import ps3 from "../assets/PhotoShoot/nature.webp";
+import ps4 from "../assets/PhotoShoot/sibling.webp";
+import ps5 from "../assets/PhotoShoot/nature_2.webp";
+import ps6 from "../assets/PhotoShoot/butterfly.webp";
+import ps7 from "../assets/PhotoShoot/krishna/rk7.webp";
+import ps8 from "../assets/PhotoShoot/chocolate.webp";
+import ps9 from "../assets/PhotoShoot/dresshanger.webp";
+import ps10 from "../assets/PhotoShoot/eight.webp";
+import ps11 from "../assets/PhotoShoot/kitchen.webp";
+import ps12 from "../assets/PhotoShoot/name.webp";
 
 // Milestones
 // import m1 from "../assets/Milestones/1st.jpg";
@@ -37,49 +36,58 @@ import ps13 from "../assets/PhotoShoot/sibling.jpeg";
 // import m5 from "../assets/Milestones/5th.jpg";
 
 // Festivals
-import krishna from "../assets/PhotoShoot/krishna/rk6.jpeg";
-import diwali from "../assets/PhotoShoot/diwali.jpeg";
+import krishna from "../assets/PhotoShoot/krishna/rk6.webp";
+import diwali from "../assets/PhotoShoot/diwali.webp";
 
 // Nature
-import butterfly from "../assets/PhotoShoot/butterfly.jpeg";
-import horse from "../assets/PhotoShoot/horse.jpeg";
+import butterfly from "../assets/PhotoShoot/butterfly.webp";
+import horse from "../assets/PhotoShoot/horse.webp";
 
-import Toy from "../assets/PhotoShoot/toys.jpeg";
-import Toy2 from "../assets/PhotoShoot/toys_2.jpeg";
-import Butterfly from "../assets/PhotoShoot/butterfly.jpeg";
+import Toy from "../assets/PhotoShoot/toys.webp";
+import Toy2 from "../assets/PhotoShoot/toys_2.webp";
+import Butterfly from "../assets/PhotoShoot/butterfly.webp";
 
-import BS1 from "../assets/BabyShower/1.jpeg";
-import BS2 from "../assets/BabyShower/2.jpeg";
-import BS3 from "../assets/BabyShower/3.jpeg";
+import BS1 from "../assets/BabyShower/1.webp";
+import BS2 from "../assets/BabyShower/2.webp";
+import BS3 from "../assets/BabyShower/3.webp";
 
-import Ballon from "../assets/ballonCarousel.jpg";
+import Ballon from "../assets/ballonCarousel.webp";
 
-import NC1 from "../assets/NamingCeremony/1.png";
-import NC2 from "../assets/NamingCeremony/2.png";
-import NC3 from "../assets/NamingCeremony/3.jpeg";
+import NC1 from "../assets/NamingCeremony/1.webp";
+import NC2 from "../assets/NamingCeremony/2.webp";
+import NC3 from "../assets/NamingCeremony/3.webp";
 
-import Festival from "../assets/PhotoShoot/diwali.jpeg";
+import Festival from "../assets/PhotoShoot/diwali.webp";
 
-import OD1 from "../assets/office/1.png";
-import OD2 from "../assets/office/2.png";
+import OD1 from "../assets/office/1.webp";
+import OD2 from "../assets/office/2.webp";
 import OD3 from "../assets/office/3.webp";
 
-import Ring1 from "../assets/ring/1.png";
-import Ring2 from "../assets/ring/2.png";
-import Ring3 from "../assets/ring/3.png";
+import Ring1 from "../assets/ring/1.webp";
+import Ring2 from "../assets/ring/2.webp";
+import Ring3 from "../assets/ring/3.webp";
 
-import AN1 from "../assets/ani/1.png";
-import AN2 from "../assets/ani/2.jpeg";
-import AN3 from "../assets/ani/3.png";
-import AN4 from "../assets/ani/4.jpeg";
+import AN1 from "../assets/ani/1.webp";
+import AN2 from "../assets/ani/2.webp";
+import AN3 from "../assets/ani/3.webp";
+import AN4 from "../assets/ani/4.webp";
 
-import Haldi from "../assets/Haldi/1.png";
-import Haldi2 from "../assets/Haldi/2.png";
-import Haldi3 from "../assets/Haldi/3.png";
-import Haldi4 from "../assets/Haldi/4.png";
+import Haldi from "../assets/Haldi/1.webp";
+import Haldi2 from "../assets/Haldi/2.webp";
+import Haldi3 from "../assets/Haldi/3.webp";
+import Haldi4 from "../assets/Haldi/4.webp";
+import Mehendi from "../assets/Haldi/mehendi.webp";
+
+import HD1 from "../assets/HouseDecoration/1.webp";
+import HD2 from "../assets/HouseDecoration/2.webp";
+import HD3 from "../assets/HouseDecoration/3.webp";
+import HD4 from "../assets/HouseDecoration/4.webp";
+
+import Fest1 from "../assets/Festival/1.webp";
+import Fest2 from "../assets/Festival/2.webp";
 
 const galleryData = {
-  birthday: [
+  Birthday: [
     bd1,
     bd2,
     bd3,
@@ -95,7 +103,7 @@ const galleryData = {
     bd15,
     bd20,
   ],
-  photoshoot: [
+  "Photo Shoot": [
     ps1,
     ps2,
     ps3,
@@ -109,12 +117,11 @@ const galleryData = {
     ps10,
     ps11,
     ps12,
-    ps13,
   ],
-  haldi: [Haldi, Haldi2, Haldi3, Haldi4],
-  anniversay: [AN1, AN2, AN3, AN4],
-  "ring Ceremony": [Ring1, Ring2, Ring3],
-  "naming Ceremony": [NC1, NC2, NC3],
+  "Haldi & Mehendi": [Haldi, Haldi2, Haldi3, Haldi4, Mehendi],
+  Anniversary: [AN1, AN2, AN3, AN4],
+  "Ring Ceremony": [Ring1, Ring2, Ring3],
+  "Naming Ceremony": [NC1, NC2, NC3],
 
   //   milestones: [
   //     { title: "1st Birthday", img: m1 },
@@ -124,19 +131,21 @@ const galleryData = {
   //     { title: "5th Birthday", img: m5 },
   //   ],
 
-  festivals: [krishna, diwali],
+  Festivals: [Fest1, Fest2, krishna, diwali],
 
-  nature: [butterfly, Toy, horse],
+  "House Warming": [HD1, HD2, HD3, HD4],
+
+  Nature: [butterfly, Toy, horse],
 
   "Baby Shower": [BS1, BS2, BS3],
 
-  office: [OD1, OD2, OD3],
+  Office: [OD1, OD2, OD3],
 };
 
 const recentDecorationImages = {
   decoration: [Toy, bd5, BS2, Toy2, bd1, NC2, horse, AN2],
 
-  "recent Decor": [Toy, bd4, bd3, Haldi, diwali, bd2, BS3, bd5, bd13],
+  recentDecor: [Toy, bd4, bd3, Haldi, diwali, bd2, BS3, bd5, bd13],
   packages: [
     Toy,
     bd4,

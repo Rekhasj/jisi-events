@@ -1,6 +1,7 @@
 import React from "react";
 import Emoji from "../Common/Emoji";
 import { Link } from "react-router-dom";
+import { telLink, whatsAppLink } from "../../data/contactInfo";
 
 function Services() {
   const mainServices = [
@@ -416,7 +417,7 @@ function Services() {
                   </p>
                   <div className="d-flex gap-3 justify-content-center flex-wrap">
                     <a
-                      href="https://wa.me/919876543210?text=Hi,%20I'd%20like%20to%20know%20more%20about%20JISI%20Events"
+                      href={whatsAppLink("Hi, I'd like to know more about JiSi Events")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold"
@@ -426,7 +427,7 @@ function Services() {
                       Chat on WhatsApp
                     </a>
                     <a
-                      href="tel:+919876543210"
+                      href={telLink}
                       className="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold"
                     >
                       <span className="fs-4 me-2">📞</span>

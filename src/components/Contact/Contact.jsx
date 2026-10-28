@@ -1,130 +1,185 @@
-import React from "react";
+import React, { useState } from "react";
+import {
+  EMAIL,
+  PHONE_DISPLAY,
+  mailLink,
+  telLink,
+  whatsAppLink,
+} from "../../data/contactInfo";
 
 function Contact() {
-  const PhoneNumber = "911234567890";
-  const Email = "info@jisievents.com";
-  const WhatsAppLink = `https://wa.me/${"9441880054"}?text=Hi, I'd like to book a decoration package`;
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    date: "",
+    message: "",
+  });
 
+  const bookingLink = whatsAppLink("Hi, I'd like to book a decoration package");
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
+
+  // No backend: send the enquiry to WhatsApp with the details pre-filled.
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Thank you! We will contact you soon.");
+    const lines = [
+      "Hi JiSi Events, I'd like to make an enquiry.",
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      form.email && `Email: ${form.email}`,
+      form.date && `Event date: ${form.date}`,
+      `Details: ${form.message}`,
+    ].filter(Boolean);
+    window.open(whatsAppLink(lines.join("\n")), "_blank", "noopener");
   };
 
   return (
-    <main style={{}}>
-      <div className="container py-5">
-        <h2 className="h2 fw-bold mb-4">Contact & Booking</h2>
+    <div className="container py-5">
+      <div className="text-center mb-5">
+        <h1 className="display-5 fw-bold mb-2">Contact & Booking</h1>
+        <p className="lead text-muted">
+          Tell us about your celebration and we'll get back to you quickly.
+        </p>
+      </div>
 
-        <div className="row g-4">
-          {/* Contact Information */}
-          <div className="col-md-6">
-            <div className="p-4 bg-white rounded shadow-sm h-100">
-              <h3 className="h5 fw-semibold mb-3">Call / WhatsApp</h3>
+      <div className="row g-4">
+        {/* Contact Information */}
+        <div className="col-md-5">
+          <div className="p-4 bg-white rounded-4 shadow-sm h-100">
+            <h2 className="h5 fw-semibold mb-3">Call / WhatsApp</h2>
 
-              <p className="mb-2">
-                <strong>Phone:</strong>{" "}
-                <a
-                  href={`tel:+${"9441880054"}`}
-                  className="text-primary text-decoration-none"
-                >
-                  +91 12345 67890
-                </a>
-              </p>
+            <p className="mb-2">
+              <strong>Phone:</strong>{" "}
+              <a href={telLink} className="text-decoration-none">
+                {PHONE_DISPLAY}
+              </a>
+            </p>
 
-              <p className="mb-3">
-                <strong>WhatsApp:</strong>{" "}
-                <a
-                  href={WhatsAppLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-success text-decoration-none"
-                >
-                  Message us on WhatsApp
-                </a>
-              </p>
+            <p className="mb-3">
+              <strong>WhatsApp:</strong>{" "}
+              <a
+                href={bookingLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-success text-decoration-none"
+              >
+                Message us on WhatsApp
+              </a>
+            </p>
 
-              <h3 className="h5 fw-semibold mt-4 mb-3">Email</h3>
+            <h2 className="h5 fw-semibold mt-4 mb-3">Email</h2>
+            <p className="mb-4">
+              <a href={mailLink()} className="text-decoration-none text-break">
+                {EMAIL}
+              </a>
+            </p>
 
-              <p className="mb-4">
-                <a
-                  href={`mailto:${"rekhasj21@gmail.com"}`}
-                  className="text-primary text-decoration-none"
-                >
-                  {Email}
-                </a>
-              </p>
-
-              <div className="mt-4">
-                <a
-                  href={WhatsAppLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-success px-4 py-2"
-                >
-                  📱 Book on WhatsApp
-                </a>
-              </div>
-            </div>
+            <a
+              href={bookingLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp rounded-pill px-4 py-2"
+            >
+              📱 Book on WhatsApp
+            </a>
           </div>
+        </div>
 
-          {/* Contact Form */}
-          <div className="col-md-6">
-            <div className="p-4 bg-white rounded shadow-sm h-100">
-              <h3 className="h5 fw-semibold mb-3">Send a quick message</h3>
+        {/* Contact Form */}
+        <div className="col-md-7">
+          <div className="p-4 bg-white rounded-4 shadow-sm h-100">
+            <h2 className="h5 fw-semibold mb-1">Send a quick message</h2>
+            <p className="small text-muted mb-3">
+              This opens WhatsApp with your details filled in — just press
+              send.
+            </p>
 
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
+            <form onSubmit={handleSubmit}>
+              <div className="row g-3">
+                <div className="col-sm-6">
+                  <label htmlFor="name" className="form-label small">
+                    Your name
+                  </label>
                   <input
+                    id="name"
+                    name="name"
                     required
                     type="text"
                     className="form-control"
-                    placeholder="Your name"
+                    value={form.name}
+                    onChange={handleChange}
                   />
                 </div>
-
-                <div className="mb-3">
+                <div className="col-sm-6">
+                  <label htmlFor="phone" className="form-label small">
+                    Phone / WhatsApp
+                  </label>
                   <input
+                    id="phone"
+                    name="phone"
                     required
                     type="tel"
                     className="form-control"
-                    placeholder="Phone / WhatsApp"
+                    value={form.phone}
+                    onChange={handleChange}
                   />
                 </div>
-
-                <div className="mb-3">
+                <div className="col-sm-6">
+                  <label htmlFor="email" className="form-label small">
+                    Email (optional)
+                  </label>
                   <input
+                    id="email"
+                    name="email"
                     type="email"
                     className="form-control"
-                    placeholder="Email (optional)"
+                    value={form.email}
+                    onChange={handleChange}
                   />
                 </div>
-
-                <div className="mb-3">
+                <div className="col-sm-6">
+                  <label htmlFor="date" className="form-label small">
+                    Event date (optional)
+                  </label>
+                  <input
+                    id="date"
+                    name="date"
+                    type="date"
+                    className="form-control"
+                    value={form.date}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className="col-12">
+                  <label htmlFor="message" className="form-label small">
+                    About the party
+                  </label>
                   <textarea
+                    id="message"
+                    name="message"
                     required
                     className="form-control"
                     rows={4}
-                    placeholder="Tell us about the party (date, headcount, theme)"
+                    placeholder="Occasion, venue, headcount, theme…"
+                    value={form.message}
+                    onChange={handleChange}
                   ></textarea>
                 </div>
+              </div>
 
-                <button
-                  type="submit"
-                  className="btn btn-pink px-4 py-2"
-                  style={{
-                    backgroundColor: "#ec4899",
-                    color: "white",
-                    border: "none",
-                  }}
-                >
-                  Send Inquiry
-                </button>
-              </form>
-            </div>
+              <button
+                type="submit"
+                className="btn btn-brand rounded-pill px-4 py-2 mt-3"
+              >
+                Send Enquiry on WhatsApp
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
 

@@ -1,16 +1,43 @@
-# React + Vite
+# JiSi Events & Decorations
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Website for JiSi Events & Decorations, Kuppam (AP): birthday, baby shower,
+haldi, ring ceremony, naming ceremony, festival, house-warming and office
+decorations, with booking via WhatsApp.
 
-Currently, two official plugins are available:
+Built with React 19, Vite, React Router and Bootstrap 5.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting started
 
-## React Compiler
+```bash
+npm install
+npm run dev      # start the dev server at http://localhost:5173
+npm run build    # production build into dist/
+npm run preview  # serve the production build locally
+npm run lint     # check the code with ESLint
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Where things live
 
-## Expanding the ESLint configuration
+| What | Where |
+| --- | --- |
+| Phone, email, WhatsApp links, location | `src/data/contactInfo.js` |
+| Decoration categories and items | `src/data/decorationData.js` |
+| Gallery and carousel photos | `src/data/galleryData.js` |
+| Packages | `src/data/packageData.js` |
+| Pages | `src/components/<Page>/` |
+| Shared styles (brand colours, buttons, hover effects) | `src/index.css` |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To change the phone number or email, edit `src/data/contactInfo.js` only —
+every button and link on the site reads from it.
+
+## Adding photos
+
+Save new photos as WebP (about 1600px wide) in `src/assets/<Category>/`, then
+import them in `src/data/galleryData.js`. Large PNG/JPEG files from a phone
+are often 2–3 MB each and slow the site down on mobile.
+
+## Deploying
+
+The site uses client-side routing, so the host must serve `index.html` for
+every path (for example, a rewrite rule on Netlify or Vercel). Otherwise
+refreshing a page like `/gallery` shows the host's 404 page.

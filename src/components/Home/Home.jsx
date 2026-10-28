@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { decorationCategories } from "../../data/decorationData";
 import Hero from "../Common/Hero";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBabyCarriage } from "@fortawesome/free-solid-svg-icons";
 import { carouselData, recentDecorationImages } from "../../data/galleryData";
+import { telLink, whatsAppLink } from "../../data/contactInfo";
 
 function ServiceCard({ emoji, title, description, borderColor, bgColor }) {
   return (
     <div
-      className="card h-100 shadow-sm"
+      className="card h-100 shadow-sm hover-lift"
       style={{
         borderTop: `4px solid ${borderColor}`,
         borderRadius: "1.5rem",
         transition: "all 0.3s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-10px)";
-        e.currentTarget.style.boxShadow = "0 15px 40px rgba(0,0,0,0.15)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 4px 15px rgba(0,0,0,0.1)";
       }}
     >
       <div className="card-body text-center p-4">
@@ -148,7 +141,7 @@ function Home() {
           </p>
 
           <div className="row g-3">
-            {recentDecorationImages["recent Decor"].map((img, idx) => (
+            {recentDecorationImages.recentDecor.map((img, idx) => (
               <div key={idx} className="col-6 col-md-3">
                 <div
                   style={{
@@ -157,20 +150,11 @@ function Home() {
                     overflow: "hidden",
                     borderRadius: "1rem",
                     boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
-                    transition: "all 0.3s ease",
                   }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.boxShadow =
-                      "0 15px 40px rgba(0,0,0,0.2)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 15px rgba(0,0,0,0.1)";
-                  }}
+                  className="hover-zoom"
                 >
                   <img
+                    loading="lazy"
                     src={img}
                     alt={`Decoration ${idx + 1}`}
                     style={{
@@ -201,23 +185,14 @@ function Home() {
           <div className="row g-4">
             {decorationCategories.map((service, idx) => (
               <div key={idx} className="col-md-6 col-lg-4">
-                <div
-                  className="d-flex align-items-start gap-3 p-4 h-100"
+                <Link
+                  to={`/decoration/${service.id}`}
+                  className="d-flex align-items-center gap-3 p-4 h-100 text-decoration-none text-dark hover-lift"
                   style={{
                     background: "linear-gradient(135deg, #faf5ff, #fce7f3)",
                     borderRadius: "1rem",
                     boxShadow: "0 4px 10px rgba(0,0,0,0.08)",
                     transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-5px)";
-                    e.currentTarget.style.boxShadow =
-                      "0 10px 25px rgba(0,0,0,0.12)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow =
-                      "0 4px 10px rgba(0,0,0,0.08)";
                   }}
                 >
                   <div
@@ -231,19 +206,13 @@ function Home() {
                     }}
                   >
                     {service.iconName ? (
-                      <>
-                        {console.log("Rendering icon:", service.iconName)}
-                        <FontAwesomeIcon
-                          icon={service.iconName}
-                          color={"gold"}
-                        />
-                      </>
+                      <FontAwesomeIcon icon={service.iconName} color="gold" />
                     ) : (
                       service?.emoji
                     )}
                   </div>
                   <span className="fw-semibold">{service.name}</span>
-                </div>
+                </Link>
               </div>
             ))}
           </div>
@@ -278,7 +247,7 @@ function Home() {
               magical memories.
             </p>
             <a
-              href="https://wa.me/919876543210?text=I'm%20interested%20in%20stage%20entry%20rentals"
+              href={whatsAppLink("I'm interested in stage entry rentals")}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold"
@@ -325,7 +294,7 @@ function Home() {
             </p>
             <div className="d-flex gap-3 justify-content-center flex-wrap">
               <a
-                href="https://wa.me/919876543210?text=Hi,%20I'd%20like%20to%20inquire%20about%20party%20planning%20services"
+                href={whatsAppLink("Hi, I'd like to inquire about party planning services")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-lg rounded-pill px-5 py-3 fw-bold text-white"
@@ -345,7 +314,7 @@ function Home() {
                 WhatsApp Us Now
               </a>
               <a
-                href="tel:+919876543210"
+                href={telLink}
                 className="btn btn-lg rounded-pill px-5 py-3 fw-bold text-white"
                 style={{
                   background: "linear-gradient(135deg, #a855f7, #ec4899)",
@@ -367,40 +336,6 @@ function Home() {
         </div>
       </section>
 
-      <style>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(20px);
-          }
-        }
-          @keyframes floatX {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(40px);  /* move right */
-  }
-}
-  @keyframes floatSmall {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateX(-5px); /* small upward movement */
-  }
-}
-  @keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-      `}</style>
     </main>
   );
 }

@@ -1,14 +1,14 @@
-import Butterfly from "../assets/PhotoShoot/butterfly.jpeg";
-import Jiya1 from "../assets/Birthday/Jiya/One/1.jpeg";
-import BS from "../assets/BabyShower/1.jpeg";
-import AN2 from "../assets/ani/1.png";
-import OD from "../assets/office/1.png";
-import Haldi from "../assets/Haldi/1.png";
-import Ring3 from "../assets/ring/3.png";
+import Butterfly from "../assets/PhotoShoot/butterfly.webp";
+import Jiya1 from "../assets/Birthday/Jiya/One/1.webp";
+import BS from "../assets/BabyShower/1.webp";
+import AN2 from "../assets/ani/1.webp";
+import OD from "../assets/office/1.webp";
+import Haldi from "../assets/Haldi/1.webp";
+import Ring3 from "../assets/ring/3.webp";
 
-import NC1 from "../assets/NamingCeremony/1.png";
-import HD from "../assets/HouseDecoration/1.png";
-import Festival from "../assets/PhotoShoot/diwali.jpeg";
+import NC1 from "../assets/NamingCeremony/1.webp";
+import HD from "../assets/HouseDecoration/1.webp";
+import Festival from "../assets/PhotoShoot/diwali.webp";
 import {
   faBabyCarriage,
   faPersonPregnant,
@@ -17,8 +17,6 @@ import {
 const decorationData = {
   "baby-shower": {
     title: "Baby Shower",
-    bgImage:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
 
     image: [BS],
     products: [
@@ -54,8 +52,6 @@ const decorationData = {
   },
   birthday: {
     title: "Birthday Decoration",
-    bgImage:
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=800",
     image: [Jiya1],
 
     products: [
@@ -91,8 +87,6 @@ const decorationData = {
   },
   photoshoot: {
     title: "Photo Shoot Ideas/Decorations",
-    bgImage:
-      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800",
 
     image: [Butterfly],
 
@@ -129,8 +123,6 @@ const decorationData = {
   },
   anniversary: {
     title: "Anniversary Decoration",
-    bgImage:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800",
 
     image: [AN2],
 
@@ -168,9 +160,6 @@ const decorationData = {
   "welcome-baby": {
     title: "Welcome Baby Decor",
     image: [NC1],
-
-    bgImage:
-      "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",
     products: [
       {
         id: 1,
@@ -206,9 +195,6 @@ const decorationData = {
     title: "Ring Ceremony",
     image: [Ring3],
 
-    bgImage:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800",
-
     products: [
       {
         id: 1,
@@ -243,9 +229,6 @@ const decorationData = {
   "haldi-ceremony": {
     title: "Haldi Ceremony",
     image: [Haldi],
-
-    bgImage:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800",
     products: [
       {
         id: 1,
@@ -280,9 +263,6 @@ const decorationData = {
   festivals: {
     title: "Festivals Decoration",
     image: [Festival],
-
-    bgImage:
-      "https://images.unsplash.com/photo-1476900966873-ab290e6b8b8b?w=800",
     products: [
       {
         id: 1,
@@ -317,9 +297,6 @@ const decorationData = {
   "naming-ceremony": {
     title: "Naming Ceremony",
     image: [NC1],
-
-    bgImage:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=800",
     products: [
       {
         id: 1,
@@ -354,8 +331,6 @@ const decorationData = {
   "house-warming": {
     title: "House Warming Decors",
     image: [HD],
-
-    bgImage: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
     products: [
       {
         id: 1,
@@ -390,9 +365,6 @@ const decorationData = {
   office: {
     title: "Office Decoration",
     image: [OD],
-
-    bgImage:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
     products: [
       {
         id: 1,
@@ -434,7 +406,7 @@ const decorationCategories = [
     color: "#ec4899",
   },
   {
-    id: "babyshower",
+    id: "baby-shower",
     name: "Baby Shower Decorations",
     emoji: "👶",
     iconName: faPersonPregnant,
@@ -447,7 +419,7 @@ const decorationCategories = [
     color: "#f43f5e",
   },
   {
-    id: "welcomebaby",
+    id: "welcome-baby",
     name: "Welcome Baby Decor / Naming Ceremony",
     emoji: "🎁",
     iconName: faBabyCarriage,
@@ -455,25 +427,25 @@ const decorationCategories = [
     color: "#fbbf24",
   },
   {
-    id: "ring",
+    id: "ring-ceremony",
     name: "Ring Ceremony Decorations",
     emoji: "💍",
     color: "#a855f7",
   },
   {
-    id: "haldi",
+    id: "haldi-ceremony",
     name: "Haldi Ceremony Setup",
     emoji: "✨",
     color: "#fbbf24",
   },
   {
-    id: "festival",
+    id: "festivals",
     name: "Festival Decorations",
     emoji: "🪔",
     color: "#fb923c",
   },
   {
-    id: "housewarming",
+    id: "house-warming",
     name: "Housewarming Decor",
     emoji: "🏠",
     color: "#10b981",

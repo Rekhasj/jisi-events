@@ -3,7 +3,8 @@ import PackageCard from "./PackageCard";
 import Hero from "../Common/Hero";
 import { packagesDataByCategory } from "../../data/packageData";
 import { decorationCategories } from "../../data/decorationData";
-import { galleryData, recentDecorationImages } from "../../data/galleryData";
+import { recentDecorationImages } from "../../data/galleryData";
+import { telLink, whatsAppLink } from "../../data/contactInfo";
 
 function Packages() {
   const [selectedCategory, setSelectedCategory] = useState("birthday");
@@ -14,7 +15,7 @@ function Packages() {
     description:
       "Explore our wide range of decoration services for every occasion",
     buttonText: false,
-    heroImages: recentDecorationImages.packages || galleryData.carousel,
+    heroImages: recentDecorationImages.packages,
   };
 
   const currentPackages = packagesDataByCategory["general"] || [];
@@ -132,7 +133,7 @@ function Packages() {
             </p>
             <div className="d-flex gap-3 justify-content-center flex-wrap">
               <a
-                href="https://wa.me/919876543210?text=Hi,%20I'd%20like%20a%20custom%20decoration%20package%20quote"
+                href={whatsAppLink("Hi, I'd like a custom decoration package quote")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-lg rounded-pill px-5 py-3 fw-bold text-white"
@@ -144,7 +145,7 @@ function Packages() {
                 WhatsApp for Custom Quote
               </a>
               <a
-                href="tel:+919876543210"
+                href={telLink}
                 className="btn btn-lg rounded-pill px-5 py-3 fw-bold text-white"
                 style={{
                   background: `linear-gradient(135deg, ${currentCategory?.color}, ${currentCategory?.color}dd)`,
@@ -162,13 +163,6 @@ function Packages() {
         .btn:focus {
           box-shadow: none !important;
         }
-           @keyframes rotate360 {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
       `}</style>
     </main>
   );

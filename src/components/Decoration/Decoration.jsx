@@ -1,24 +1,10 @@
-import React, { useState } from "react";
-import {
-  decorationData,
-  decorationDataComingSoon,
-} from "../../data/decorationData";
-import DecorationDetailPage from "./DecorationDetailPage";
+import React from "react";
+import { Link } from "react-router-dom";
+import { decorationData } from "../../data/decorationData";
 import Carousel from "../../Carousel/Carousel";
-import { galleryData, recentDecorationImages } from "../../data/galleryData";
+import { recentDecorationImages } from "../../data/galleryData";
 
 const Decoration = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-
-  if (selectedCategory) {
-    return (
-      <DecorationDetailPage
-        category={selectedCategory}
-        onBack={() => setSelectedCategory(null)}
-      />
-    );
-  }
-
   return (
     <div
       className="py-5"
@@ -30,7 +16,7 @@ const Decoration = () => {
     >
       <div className="container">
         {/* Header Section */}
-        <Carousel carouselData={recentDecorationImages?.decoration} />
+        <Carousel carouselData={recentDecorationImages.decoration} />
 
         <div className="text-center mb-5">
           <h1
@@ -53,41 +39,18 @@ const Decoration = () => {
         <div className="row g-4">
           {Object.entries(decorationData).map(([key, data]) => (
             <div key={key} className="col-12 col-md-6 col-lg-4">
-              <div
-                onClick={() => setSelectedCategory(key)}
-                className="card border-0 shadow-sm overflow-hidden position-relative"
-                style={{
-                  height: "300px",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-5px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 1rem 3rem rgba(0,0,0,.175)";
-                  const img = e.currentTarget.querySelector("img");
-                  if (img) img.style.transform = "scale(1.1)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 0.125rem 0.25rem rgba(0,0,0,.075)";
-                  const img = e.currentTarget.querySelector("img");
-                  if (img) img.style.transform = "scale(1)";
-                }}
+              <Link
+                to={`/decoration/${key}`}
+                className="card border-0 shadow-sm overflow-hidden position-relative hover-lift hover-zoom text-decoration-none"
+                style={{ height: "300px" }}
               >
                 {/* Background Image */}
                 <img
-                  image
-                  src={data.image ? data.image : data.bgImage}
-                  //   src={data.bgImage}
+                  src={data.image[0]}
                   alt={data.title}
-                  className="card-img"
-                  style={{
-                    height: "100%",
-                    objectFit: "cover",
-                    transition: "transform 0.5s ease",
-                  }}
+                  loading="lazy"
+                  className="card-img h-100"
+                  style={{ objectFit: "cover" }}
                 />
 
                 {/* Gradient Overlay */}
@@ -109,7 +72,7 @@ const Decoration = () => {
                     <span style={{ fontSize: "1.5rem" }}>▸</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

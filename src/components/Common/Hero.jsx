@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import EmojiItem from "./EmojiItem";
+import { whatsAppLink } from "../../data/contactInfo";
 
 const Hero = ({ heroDisplayData }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -13,8 +15,9 @@ const Hero = ({ heroDisplayData }) => {
     return () => clearInterval(timer);
   }, [heroDisplayData?.heroImages.length]);
 
-  const WhatsAppLink =
-    "https://wa.me/9441880054?text=Hi,%20I'd%20like%20to%20inquire%20about%20decoration%20packages";
+  const WhatsAppLink = whatsAppLink(
+    "Hi, I'd like to inquire about decoration packages"
+  );
 
   return (
     <header
@@ -162,8 +165,8 @@ const Hero = ({ heroDisplayData }) => {
               </span>
               <span style={{ marginLeft: "40px" }}>Book on WhatsApp </span>
             </a>
-            <a
-              href="packages"
+            <Link
+              to="/packages"
               className="btn btn-light btn-lg rounded-pill px-4 py-3 fw-bold"
               style={{
                 color: "#a855f7",
@@ -184,7 +187,7 @@ const Hero = ({ heroDisplayData }) => {
                 🎁
               </span>
               <span style={{ marginLeft: "40px" }}> View Packages </span>
-            </a>
+            </Link>
           </div>
         )}
       </div>

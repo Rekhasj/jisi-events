@@ -1,68 +1,106 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --brand-pink: #ec4899;
+  --brand-purple: #a855f7;
+  --brand-gradient: linear-gradient(135deg, #a855f7, #ec4899);
+
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  color: #1f2937;
+  background-color: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+img {
+  max-width: 100%;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.btn-brand {
+  background: var(--brand-gradient);
+  border: none;
+  color: #fff;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.btn-brand:hover,
+.btn-brand:focus {
+  color: #fff;
+  filter: brightness(1.05);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border: none;
+  color: #fff;
+}
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+  color: #fff;
+  filter: brightness(1.05);
+}
+
+/* Lift-on-hover card, replaces per-element JS hover handlers */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+.hover-zoom img {
+  transition: transform 0.5s ease;
+}
+.hover-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Shared animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  a:hover {
-    color: #747bff;
+  50% {
+    transform: translateY(20px);
   }
-  button {
-    background-color: #f9f9f9;
+}
+@keyframes floatSmall {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes rotate360 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Respect visitors who turn off animations in their OS settings */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

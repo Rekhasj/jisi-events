@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useId } from "react";
 
 const Carousel = ({ carouselData }) => {
+  const id = `carousel-${useId().replace(/:/g, "")}`;
   return (
     <div
-      id="galleryCarousel"
+      id={id}
       className="carousel slide mb-5"
       data-bs-ride="carousel"
     >
@@ -13,7 +14,7 @@ const Carousel = ({ carouselData }) => {
           <button
             key={i}
             type="button"
-            data-bs-target="#galleryCarousel"
+            data-bs-target={`#${id}`}
             data-bs-slide-to={i}
             className={i === 0 ? "active" : ""}
             aria-current={i === 0 ? "true" : "false"}
@@ -29,7 +30,8 @@ const Carousel = ({ carouselData }) => {
             <img
               src={img}
               className="d-block w-100"
-              alt={`Carousel ${i + 1}`}
+              alt={`Decoration highlight ${i + 1}`}
+              loading={i === 0 ? "eager" : "lazy"}
               style={{ height: "500px", objectFit: "cover" }}
             />
           </div>
@@ -40,7 +42,7 @@ const Carousel = ({ carouselData }) => {
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#galleryCarousel"
+        data-bs-target={`#${id}`}
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -50,7 +52,7 @@ const Carousel = ({ carouselData }) => {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#galleryCarousel"
+        data-bs-target={`#${id}`}
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>

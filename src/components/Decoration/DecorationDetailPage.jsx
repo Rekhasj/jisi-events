@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
 import { decorationData } from "../../data/decorationData";
-import { useNavigate, useParams } from "react-router-dom";
+import { galleryData } from "../../data/galleryData";
+import { whatsAppLink } from "../../data/contactInfo";
 
-const DecorationDetailPage = ({ category, onBack }) => {
+// Which gallery section holds the real photos for each decoration category
+const galleryForCategory = {
+  "baby-shower": "Baby Shower",
+  birthday: "Birthday",
+  photoshoot: "Photo Shoot",
+  anniversary: "Anniversary",
+  "welcome-baby": "Naming Ceremony",
+  "ring-ceremony": "Ring Ceremony",
+  "haldi-ceremony": "Haldi & Mehendi",
+  festivals: "Festivals",
+  "naming-ceremony": "Naming Ceremony",
+  "house-warming": "House Warming",
+  office: "Office",
+};
+
+const DecorationDetailPage = () => {
   const { item } = useParams();
-  const navigate = useNavigate();
-  const [hoveredProduct, setHoveredProduct] = useState(null);
+  const data = decorationData[item];
 
-  const data = decorationData[category];
-  console.log("DecorationDetailPage category:", category, data);
   if (!data) {
     return (
       <div className="min-vh-100 d-flex align-items-center justify-content-center">
@@ -16,29 +30,21 @@ const DecorationDetailPage = ({ category, onBack }) => {
           <h2 className="display-5 fw-bold text-dark mb-4">
             Category not found
           </h2>
-          <button
-            onClick={onBack}
-            className="btn btn-lg shadow"
-            style={{
-              background: "linear-gradient(to right, #9333ea, #7c3aed)",
-              color: "white",
-              border: "none",
-            }}
-            onMouseEnter={(e) =>
-              (e.target.style.background =
-                "linear-gradient(to right, #7c3aed, #6d28d9)")
-            }
-            onMouseLeave={(e) =>
-              (e.target.style.background =
-                "linear-gradient(to right, #9333ea, #7c3aed)")
-            }
+          <Link
+            to="/decoration"
+            className="btn btn-lg btn-brand rounded-pill px-5 shadow"
           >
             Back to Decorations
-          </button>
+          </Link>
         </div>
       </div>
     );
   }
+
+  const photos = galleryData[galleryForCategory[item]] || data.image;
+  const enquiryLink = whatsAppLink(
+    `Hi, I'm interested in ${data.title}. Can you share details and pricing?`
+  );
 
   return (
     <div
@@ -54,7 +60,7 @@ const DecorationDetailPage = ({ category, onBack }) => {
         style={{ height: "400px" }}
       >
         <img
-          src={data.bgImage}
+          src={data.image[0]}
           alt={data.title}
           className="w-100 h-100"
           style={{ objectFit: "cover" }}
@@ -67,12 +73,9 @@ const DecorationDetailPage = ({ category, onBack }) => {
           }}
         >
           <div className="container">
-            <button
-              onClick={onBack}
-              className="btn btn-link text-white text-decoration-none mb-3 p-0 d-flex align-items-center"
-              style={{ fontSize: "1rem" }}
-              onMouseEnter={(e) => (e.target.style.color = "#fbcfe8")}
-              onMouseLeave={(e) => (e.target.style.color = "white")}
+            <Link
+              to="/decoration"
+              className="detail-back text-white text-decoration-none mb-3 d-inline-flex align-items-center"
             >
               <svg
                 className="me-2"
@@ -81,6 +84,7 @@ const DecorationDetailPage = ({ category, onBack }) => {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -90,109 +94,79 @@ const DecorationDetailPage = ({ category, onBack }) => {
                 />
               </svg>
               Back to Categories
-            </button>
-            <h1 className="display-2 fw-bold text-white mb-3">{data.title}</h1>
-            <p className="text-white fs-5" style={{ opacity: 0.9 }}>
-              Premium decoration items for your special occasion
+            </Link>
+            <h1 className="display-3 fw-bold text-white mb-3">{data.title}</h1>
+            <p className="text-white fs-5 mb-4" style={{ opacity: 0.9 }}>
+              Beautiful decorations for your special occasion
             </p>
+            <a
+              href={enquiryLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp btn-lg rounded-pill px-4 fw-semibold"
+            >
+              📱 Enquire on WhatsApp
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Products Section */}
       <div className="container py-5">
-        {/* <div className="d-flex justify-content-between align-items-center mb-4">
-          <h2 className="h2 fw-bold text-dark">Available Products</h2>
-          <span className="text-muted">{data.products.length} items</span>
-        </div> */}
-
-        <div className="row g-4">
+        {/* What we offer */}
+        <h2 className="h3 fw-bold mb-3">What we offer</h2>
+        <div className="d-flex flex-wrap gap-2 mb-5">
           {data.products.map((product) => (
-            <div key={product.id} className="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div
-                className="card border-0 shadow-sm h-100"
-                style={{ transition: "all 0.3s ease" }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-5px)";
-                  e.currentTarget.style.boxShadow =
-                    "0 1rem 3rem rgba(0,0,0,.175)";
-                  setHoveredProduct(product.id);
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow =
-                    "0 0.125rem 0.25rem rgba(0,0,0,.075)";
-                  setHoveredProduct(null);
-                }}
-              >
-                <div
-                  className="position-relative overflow-hidden"
-                  style={{ height: "250px" }}
-                >
-                  {/* <img
-                    src={product.image}
-                    alt={product.name}
-                    className="card-img-top h-100"
-                    style={{
-                      objectFit: "cover",
-                      transition: "transform 0.5s ease",
-                      transform:
-                        hoveredProduct === product.id
-                          ? "scale(1.1)"
-                          : "scale(1)",
-                    }}
-                  /> */}
-                  {/* {hoveredProduct === product.id && (
-                    <div
-                      className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-                      style={{ background: "rgba(0,0,0,0.2)" }}
-                    >
-                      <button className="btn btn-light fw-semibold rounded-pill px-4 py-2 shadow">
-                        Quick View
-                      </button>
-                    </div>
-                  )} */}
-                </div>
+            <span
+              key={product.id}
+              className="badge rounded-pill bg-white text-dark border shadow-sm px-3 py-2 fs-6 fw-normal"
+            >
+              ✨ {product.name}
+            </span>
+          ))}
+        </div>
 
-                {/* <div className="card-body">
-                  <h5 className="card-title fw-semibold text-dark mb-3">
-                    {product.name}
-                  </h5>
-                  {product.price && (
-                    <div className="d-flex justify-content-between align-items-center">
-                      <span
-                        className="h4 fw-bold mb-0"
-                        style={{ color: "#9333ea" }}
-                      >
-                        ₹{product.price}
-                      </span>
-                      <button
-                        className="btn btn-sm text-white shadow-sm"
-                        style={{
-                          background:
-                            "linear-gradient(to right, #ec4899, #9333ea)",
-                          border: "none",
-                          transition: "all 0.3s ease",
-                        }}
-                        onMouseEnter={(e) => {
-                          e.target.style.background =
-                            "linear-gradient(to right, #db2777, #7c3aed)";
-                        }}
-                        onMouseLeave={(e) => {
-                          e.target.style.background =
-                            "linear-gradient(to right, #ec4899, #9333ea)";
-                        }}
-                      >
-                        Add to Cart
-                      </button>
-                    </div>
-                  )}
-                </div> */}
+        {/* Our work */}
+        <h2 className="h3 fw-bold mb-3">Our work</h2>
+        <div className="row g-4">
+          {photos.map((src, idx) => (
+            <div key={idx} className="col-12 col-sm-6 col-lg-4">
+              <div
+                className="rounded-4 overflow-hidden shadow-sm hover-lift hover-zoom"
+                style={{ height: "280px" }}
+              >
+                <img
+                  src={src}
+                  alt={`${data.title} decoration ${idx + 1}`}
+                  loading="lazy"
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
             </div>
           ))}
         </div>
+
+        {/* CTA */}
+        <div className="text-center mt-5">
+          <p className="lead text-muted mb-3">
+            Like what you see? Tell us your date and theme.
+          </p>
+          <a
+            href={enquiryLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-whatsapp btn-lg rounded-pill px-5 fw-semibold"
+          >
+            📱 Book {data.title}
+          </a>
+        </div>
       </div>
+
+      <style>{`
+        .detail-back:hover {
+          color: #fbcfe8 !important;
+        }
+      `}</style>
     </div>
   );
 };

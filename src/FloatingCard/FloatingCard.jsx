@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { whatsAppLink } from "../data/contactInfo";
 
 const FloatingCard = ({
-  phoneNumber = "9441880054",
   message = "Hi, I'd like to know more about JiSi Events",
   position = "right", // "right" or "left"
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showTooltip, setShowTooltip] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 100) {
+      if (window.scrollY > 100) {
         setIsVisible(true);
 
         // Only show tooltip when button appears fresh
@@ -41,9 +39,7 @@ const FloatingCard = ({
   }, [showTooltip]);
 
   const handleClick = () => {
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-    window.open(whatsappUrl, "_blank");
+    window.open(whatsAppLink(message), "_blank", "noopener");
   };
 
   return (
@@ -103,8 +99,7 @@ const FloatingCard = ({
         )}
 
         <button
-          // onClick={handleClick}
-          onClick={() => navigate("/contact")}
+          onClick={handleClick}
           className="whatsapp-button"
           style={{
             width: "60px",

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { EMAIL, PHONE_DISPLAY } from "../../data/contactInfo";
 
 function RefundCancellation() {
   const policies = [
@@ -204,7 +206,7 @@ function RefundCancellation() {
                 </div>
                 <h6 className="fw-bold">Email Us</h6>
                 <p className="text-muted small">
-                  Send a cancellation request to info@jisievents.com
+                  Send a cancellation request to {EMAIL}
                 </p>
               </div>
               <div className="col-md-4 text-center">
@@ -216,7 +218,7 @@ function RefundCancellation() {
                 </div>
                 <h6 className="fw-bold">WhatsApp</h6>
                 <p className="text-muted small">
-                  Message us on +91 12345 67890
+                  Message us on {PHONE_DISPLAY}
                 </p>
               </div>
               <div className="col-md-4 text-center">
@@ -239,9 +241,9 @@ function RefundCancellation() {
               If you need clarification on our refund policy, we're here to
               help.
             </p>
-            <a href="/contact" className="btn btn-warning btn-lg px-5">
+            <Link to="/contact" className="btn btn-warning btn-lg px-5">
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

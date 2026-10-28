@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ThingsToRemember() {
   const thingsToRemember = [
@@ -73,9 +74,9 @@ function ThingsToRemember() {
                   If you have any queries or need clarification on any of these
                   points, feel free to contact us.
                 </p>
-                <a href="/contact" className="btn btn-warning">
+                <Link to="/contact" className="btn btn-warning">
                   Contact Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>

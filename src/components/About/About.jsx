@@ -1,5 +1,6 @@
 import React from "react";
 import Emoji from "../Common/Emoji";
+import { telLink, whatsAppLink } from "../../data/contactInfo";
 
 function About() {
   const features = [
@@ -220,7 +221,7 @@ function About() {
                   </p>
                   <div className="d-flex gap-3 justify-content-center flex-wrap">
                     <a
-                      href="https://wa.me/9441880054?text=Hi,%20I'd%20like%20to%20know%20more%20about%20JiSi%20Events"
+                      href={whatsAppLink("Hi, I'd like to know more about JiSi Events")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn btn-light btn-lg rounded-pill px-4 py-3 fw-bold"
@@ -230,7 +231,7 @@ function About() {
                       💬 Chat on WhatsApp
                     </a>
                     <a
-                      href="tel:+919441880054"
+                      href={telLink}
                       className="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-bold"
                     >
                       {/* <span className="fs-4 me-2">📞</span> */}

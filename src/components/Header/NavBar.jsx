@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./NavBar.css";
-import ServicesDropdown from "../../DropDown/ServicesDropdown";
+import { NavLink as Link } from "react-router-dom";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,11 +35,6 @@ function NavBar() {
 
           <span className="fw-bold">JiSi Events & Decorations</span>
         </Link>
-        {/* <img
-          alt="ganesha"
-          src="src/assets/lord/ganesha.png"
-          style={{ width: "40px", marginLeft: "1px" }}
-        /> */}
 
         {/* Mobile Toggle Button */}
         <button
@@ -68,25 +61,10 @@ function NavBar() {
             </li>
 
             <li className="nav-item">
-              <Link to="/Decoration" className="nav-link" onClick={closeMenu}>
+              <Link to="/decoration" className="nav-link" onClick={closeMenu}>
                 Decorations
               </Link>
             </li>
-
-            {/* <li className="nav-item dropdown">
-              <Link to="/services" className="nav-link" onClick={closeMenu}>
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  id="servicesDropdown"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                >
-                  Our Services
-                </a>
-                <ServicesDropdown closeMenu={closeMenu} />
-              </Link>
-            </li> */}
 
             <li className="nav-item">
               <Link to="/services" className="nav-link" onClick={closeMenu}>
@@ -137,6 +115,11 @@ function NavBar() {
           transition: all 0.3s ease;
         }
         
+        .nav-link.active {
+          color: #ec4899 !important;
+          font-weight: 600;
+        }
+
         .nav-link:hover {
           color: #ec4899 !important;
           text-decoration: underline;

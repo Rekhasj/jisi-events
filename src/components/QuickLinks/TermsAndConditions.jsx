@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function TermsAndConditions() {
   const terms = [
@@ -179,9 +180,9 @@ function TermsAndConditions() {
               If you have any questions about these Terms & Conditions, please
               contact us.
             </p>
-            <a href="/contact" className="btn btn-warning btn-lg px-5">
+            <Link to="/contact" className="btn btn-warning btn-lg px-5">
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>

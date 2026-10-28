@@ -1,4 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import {
+  EMAIL,
+  LOCATION,
+  PHONE_DISPLAY,
+  mailLink,
+  telLink,
+} from "../../data/contactInfo";
 
 function PrivacyPolicy() {
   const sections = [
@@ -234,23 +242,23 @@ function PrivacyPolicy() {
                 <strong>Email:</strong>
                 <br />
                 <a
-                  href="mailto:rekhasj21@gmail.com"
+                  href={mailLink()}
                   className="text-decoration-none"
                 >
-                  info@jisievents.com
+                  {EMAIL}
                 </a>
               </div>
               <div className="col-md-4">
                 <strong>Phone:</strong>
                 <br />
-                <a href="tel:+919441880054" className="text-decoration-none">
-                  +91 12345 67890
+                <a href={telLink} className="text-decoration-none">
+                  {PHONE_DISPLAY}
                 </a>
               </div>
               <div className="col-md-4">
                 <strong>Address:</strong>
                 <br />
-                Kuppam,AP, India
+                {LOCATION}
               </div>
             </div>
           </div>
@@ -262,9 +270,9 @@ function PrivacyPolicy() {
               Your data is safe with us. Let's create something amazing
               together!
             </p>
-            <a href="/contact" className="btn btn-warning btn-lg px-5">
+            <Link to="/contact" className="btn btn-warning btn-lg px-5">
               Book Now
-            </a>
+            </Link>
           </div>
         </div>
       </div>
